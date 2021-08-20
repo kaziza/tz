@@ -1,0 +1,165 @@
+body {
+  background: antiquewhite;
+}
+
+#app {
+  display: flex;
+  flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  width: 1440px;
+  margin: 0 auto;
+}
+#app .sidebar {
+  width: 332px;
+  height: 440px;
+  border-radius: 4px;
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
+  background: #FFFEFB;
+  padding: 41px 24px;
+  margin-top: 24px;
+  margin-right: 16px;
+}
+#app .sidebar form {
+  width: 284px;
+}
+#app .sidebar .sidebarHeader {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 35px;
+  color: #3F3F3F;
+}
+#app .sidebar .inputGroup {
+  display: flex;
+  flex-direction: column;
+  flex-flow: column;
+  -ms-flex-direction: column;
+  -ms-flex-flow: column;
+  flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+}
+#app .sidebar .inputGroup label {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 13px;
+  letter-spacing: -0.02em;
+  color: #49485E;
+  margin-bottom: 4px;
+}
+#app .sidebar .inputGroup input[type=text],
+#app .sidebar .inputGroup input[type=number],
+#app .sidebar .inputGroup textarea {
+  background: #FFFEFB;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  border: none;
+  margin-bottom: 19px;
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: #B4B4B4;
+  padding-left: 16px;
+  padding-top: 10px;
+  padding-right: 16px;
+  padding-bottom: 11px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+#app .sidebar .inputGroup input {
+  height: 36px;
+}
+#app .sidebar .inputGroup textarea {
+  height: 108px;
+}
+#app .sidebar .inputGroup .activeBtn,
+#app .sidebar .inputGroup .deactiveBtn {
+  height: 36px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 600;
+  font-style: normal;
+}
+#app .sidebar .inputGroup .activeBtn {
+  background: #7BAE73;
+  color: #fff;
+}
+#app .sidebar .inputGroup .deactiveBtn {
+  background: #EEEEEE;
+  color: #B4B4B4;
+}
+#app .itemsWrapper ul {
+  list-style: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  justify-content: space-between;
+}
+#app .itemsWrapper ul .itemCard {
+  width: 332px;
+  background: yellow;
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  position: relative;
+  margin: 8px;
+}
+#app .itemsWrapper ul .itemCard .itemImg {
+  height: 200px;
+  text-align: center;
+  overflow: hidden;
+}
+#app .itemsWrapper ul .itemCard .itemImg img {
+  width: 332px;
+  border-radius: 4px 4px 0px 0px;
+  margin-bottom: 16px;
+}
+#app .itemsWrapper ul .itemCard .itemDetails {
+  color: #3F3F3F;
+  font-family: "Source Sans Pro";
+  padding: 16px;
+}
+#app .itemsWrapper ul .itemCard .itemDetails .itemName {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+  margin-bottom: 16px;
+}
+#app .itemsWrapper ul .itemCard .itemDetails .itemDesc {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 32px;
+}
+#app .itemsWrapper ul .itemCard .itemDetails .itemPrice {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+}
+#app .itemsWrapper ul .itemCard .itemDeleteBtn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 32px;
+  height: 32px;
+  background: url("./assets/delBtn.png") top -2px center no-repeat;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: none;
+}
+
+/*# sourceMappingURL=main.css.map */
