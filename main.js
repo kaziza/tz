@@ -17,6 +17,13 @@ new Vue({
 				img: this.newItemImg,
 				price: this.newItemPrice
 			})
+			this.newItemName = '',
+			this.newItemDesc = '',
+			this.newItemImg = '',
+			this.newItemPrice = 0
+		},
+		removeItem(index) {
+			this.items.splice(index, 1)
 		}
 	}
 })

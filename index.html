@@ -16,20 +16,21 @@
 			<input type="text" v-model="newItemName">
 			<input type="text" v-model="newItemDesc">
 			<input type="text" v-model="newItemImg">
-			<input type="text" v-model="newItemPrice">
+			<input type="number" v-model="newItemPrice">
 			<input type="submit" value="New" @click="addNewItem">
 		</div> 
 	
-		<ol>
-			<li v-for="item in items">
+		<ul>
+			<li v-for="(item, index) in items">
 				<div>
 					{{ item.name }}
 					{{ item.desc }}
 					{{ item.img }}
 					{{ item.price }}
+					<input type="button" value="remove" @click="removeItem(index)">
 				</div>
 			</li>
-		</ol>
+		</ul>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
