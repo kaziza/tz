@@ -6,6 +6,7 @@ new Vue({
 		newItemDesc: '',
 		newItemImg: '',
 		newItemPrice: 0,
+		formValid: false,
 		items: []
 	},
 
@@ -27,3 +28,9 @@ new Vue({
 		}
 	}
 })
+
+
+//todo
+function validStr(str) {
+	return (str === "" || str === null || str === undefined)  ? false : true
+}

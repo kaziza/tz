@@ -16,8 +16,11 @@
 			<input type="text" v-model="newItemName">
 			<input type="text" v-model="newItemDesc">
 			<input type="text" v-model="newItemImg">
-			<input type="number" v-model="newItemPrice">
-			<input type="submit" value="New" @click="addNewItem">
+			<input type="number" v-model="newItemPrice" min=0>
+
+			<input type="submit" value="New" @click="addNewItem" style="background-color: green;" v-if="formValid">
+			<input type="submit" value="New" @click="addNewItem" style="background-color: gray;" v-else>
+			
 		</div> 
 	
 		<ul>
