@@ -61,7 +61,7 @@ body {
 				box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 				border-radius: 4px;
 				border: none;
-				margin-bottom: 19px;
+				margin-bottom: 6px;
 
 				font-family: "Source Sans Pro";
 				font-style: normal;
@@ -77,6 +77,7 @@ body {
 				-moz-box-sizing: border-box;
 				-webkit-box-sizing: border-box;
 			}
+			textarea { margin-bottom: 16px; }
 			input::-webkit-outer-spin-button,
 			input::-webkit-inner-spin-button {
 				-webkit-appearance: none;
@@ -110,6 +111,7 @@ body {
 				line-height: 15px;
 				font-weight: 600;
 				font-style: normal;
+				margin-top: 24px;
 			}
 			.activeBtn {
 				background: #7BAE73;
@@ -120,6 +122,31 @@ body {
 				color: #B4B4B4;
 			}
 
+		}
+		.requiredField {
+			position: relative;
+			::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 4px;
+				height: 4px;
+				background: #FF8484;
+			}
+		}
+		.warningMsg {
+			font-family: "Source Sans Pro";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 8px;
+			line-height: 10px;
+			letter-spacing: -0.02em;
+			color: #FF8484;
+			margin-bottom: 12px;
+		}
+		.warningOutline {
+			border: 1px solid #FF8484 !important;
 		}
         
     }

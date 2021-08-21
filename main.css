@@ -53,7 +53,7 @@ body {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   border: none;
-  margin-bottom: 19px;
+  margin-bottom: 6px;
   font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: normal;
@@ -67,6 +67,9 @@ body {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+}
+#app .sidebar .inputGroup textarea {
+  margin-bottom: 16px;
 }
 #app .sidebar .inputGroup input::-webkit-outer-spin-button,
 #app .sidebar .inputGroup input::-webkit-inner-spin-button {
@@ -98,6 +101,7 @@ body {
   line-height: 15px;
   font-weight: 600;
   font-style: normal;
+  margin-top: 24px;
 }
 #app .sidebar .inputGroup .activeBtn {
   background: #7BAE73;
@@ -106,6 +110,31 @@ body {
 #app .sidebar .inputGroup .deactiveBtn {
   background: #EEEEEE;
   color: #B4B4B4;
+}
+#app .sidebar .requiredField {
+  position: relative;
+}
+#app .sidebar .requiredField ::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 4px;
+  background: #FF8484;
+}
+#app .sidebar .warningMsg {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  line-height: 10px;
+  letter-spacing: -0.02em;
+  color: #FF8484;
+  margin-bottom: 12px;
+}
+#app .sidebar .warningOutline {
+  border: 1px solid #FF8484 !important;
 }
 #app .list-complete-item {
   transition: all 1s;

@@ -22,25 +22,27 @@
 			<div class="sidebar">
 				<form>
 					<div class="inputGroup">
-						<label for="newItemName">Наименование товара</label>
-						<input type="text" v-model="newItemName" name="newItemName" placeholder="Введите наименование товара">
-
+						<label for="newItemName" class="requiredField">Наименование товара</label>
+						<input type="text" v-model="newItemName" name="newItemName" placeholder="Введите наименование товара" 
+						@input="validateName">
+						<span class="warningMsg" v-if="errors.name">{{ errors.name }}</span>
 					</div>
 					<div class="inputGroup">
 						<label for="newItemDesc">Описание товара</label>
 						<textarea v-model="newItemDesc" name="newItemDesc" placeholder="Введите описание товара"
-								rows="5" cols="20"></textarea>
+							rows="5" cols="20"></textarea>
 
 					</div>
 					<div class="inputGroup">
-						<label for="newItemImg">Ссылка на изображение товара</label>
-						<input type="text" v-model="newItemImg" name="newItemImg" placeholder="Введите ссылку">
-
+						<label for="newItemImg" class="requiredField">Ссылка на изображение товара</label>
+						<input type="text" v-model="newItemImg" name="newItemImg" placeholder="Введите ссылку" @input="validateImg">
+						<span class="warningMsg" v-if="errors.img">{{ errors.img }}</span>
 					</div>
 					<div class="inputGroup">
-						<label for="newItemPrice">Цена товара</label>
-						<input type="number" v-model="newItemPrice" min='0' name="newItemPrice" placeholder="Введите цену" value="none">
-
+						<label for="newItemPrice" class="requiredField">Цена товара</label>
+						<input type="number" v-model="newItemPrice" min='0' name="newItemPrice" placeholder="Введите цену"
+						@input="validatePrice">
+						<span class="warningMsg" v-if="errors.price">{{ errors.price }}</span>
 					</div>
 
 
@@ -55,7 +57,7 @@
 				</form>
 			</div>
 		</div>
-		
+
 
 
 		<div class="itemsWrapper">
@@ -64,8 +66,8 @@
 					<option v-bind:value="option.value" v-for="option in sortOptions">{{ option.text }}</option>
 				</select>
 			</div>
-			
-			
+
+
 			<transition-group tag='ul' name="list-complete">
 				<li v-for="(item, index) in items" class="list-complete-item" v-bind:key="item">
 					<div class="itemCard">
@@ -77,8 +79,8 @@
 							<p class="itemDesc">{{ item.desc }}</p>
 							<p class="itemPrice">{{ item.price }} руб.</p>
 						</div>
-					
-						
+
+
 						<input type="button" value="" @click="removeItem(index)" class="itemDeleteBtn">
 					</div>
 				</li>
