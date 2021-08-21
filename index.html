@@ -15,42 +15,47 @@
 <body>
 	<div id="app">
 
-		<div class="sidebar">
+		<div class="sidebarWrapper">
+
 			<h1 class="sidebarHeader">Добавление товара</h1>
-			<form>
-				<div class="inputGroup">
-					<label for="newItemName">Наименование товара</label>
-					<input type="text" v-model="newItemName" name="newItemName" placeholder="Введите наименование товара">
 
-				</div>
-				<div class="inputGroup">
-					<label for="newItemDesc">Описание товара</label>
-					<textarea v-model="newItemDesc" name="newItemDesc" placeholder="Введите описание товара"
-							rows="5" cols="20"></textarea>
+			<div class="sidebar">
+				<form>
+					<div class="inputGroup">
+						<label for="newItemName">Наименование товара</label>
+						<input type="text" v-model="newItemName" name="newItemName" placeholder="Введите наименование товара">
 
-				</div>
-				<div class="inputGroup">
-					<label for="newItemImg">Ссылка на изображение товара</label>
-					<input type="text" v-model="newItemImg" name="newItemImg" placeholder="Введите ссылку">
+					</div>
+					<div class="inputGroup">
+						<label for="newItemDesc">Описание товара</label>
+						<textarea v-model="newItemDesc" name="newItemDesc" placeholder="Введите описание товара"
+								rows="5" cols="20"></textarea>
 
-				</div>
-				<div class="inputGroup">
-					<label for="newItemPrice">Цена товара</label>
-					<input type="number" v-model="newItemPrice" min=0 name="newItemPrice" placeholder="Введите цену">
+					</div>
+					<div class="inputGroup">
+						<label for="newItemImg">Ссылка на изображение товара</label>
+						<input type="text" v-model="newItemImg" name="newItemImg" placeholder="Введите ссылку">
 
-				</div>
+					</div>
+					<div class="inputGroup">
+						<label for="newItemPrice">Цена товара</label>
+						<input type="number" v-model="newItemPrice" min='0' name="newItemPrice" placeholder="Введите цену" value="none">
 
-
-				<div class="inputGroup">
-					<input type="submit" value="Добавить товар" @click="addNewItem" class="activeBtn"
-						v-if="(newItemName !== '' && newItemImg !== '' && newItemPrice > 0)">
-					<button class="deactiveBtn" v-else>Добавить товар</button>
-
-				</div>
+					</div>
 
 
-			</form>
+					<div class="inputGroup">
+						<input type="submit" value="Добавить товар" @click="addNewItem" class="activeBtn"
+							v-if="(newItemName !== '' && newItemImg !== '' && newItemPrice > 0)">
+						<button class="deactiveBtn" disabled v-else>Добавить товар</button>
+
+					</div>
+
+
+				</form>
+			</div>
 		</div>
+		
 
 
 		<div class="itemsWrapper">
@@ -60,8 +65,9 @@
 				</select>
 			</div>
 			
-			<ul>
-				<li v-for="(item, index) in items">
+			
+			<transition-group tag='ul' name="list-complete">
+				<li v-for="(item, index) in items" class="list-complete-item" v-bind:key="item">
 					<div class="itemCard">
 						<div class="itemImg">
 							<img v-bind:src="item.img" alt="">
@@ -76,7 +82,7 @@
 						<input type="button" value="" @click="removeItem(index)" class="itemDeleteBtn">
 					</div>
 				</li>
-			</ul>
+			</transition-group>
 		</div>
 
 	</div>

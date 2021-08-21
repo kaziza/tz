@@ -1,9 +1,21 @@
+body {
+  background: #E5E5E5;
+}
+
 #app {
   display: flex;
   flex-wrap: nowrap;
   -ms-flex-wrap: nowrap;
   width: 1440px;
   margin: 0 auto;
+}
+#app .sidebarWrapper .sidebarHeader {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 35px;
+  color: #3F3F3F;
 }
 #app .sidebar {
   width: 332px;
@@ -14,18 +26,6 @@
   padding: 41px 24px;
   margin-top: 24px;
   margin-right: 16px;
-}
-#app .sidebar form {
-  width: 284px;
-}
-#app .sidebar .sidebarHeader {
-  font-family: "Source Sans Pro";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 35px;
-  color: #3F3F3F;
-  margin-top: 0;
 }
 #app .sidebar .inputGroup {
   display: flex;
@@ -68,6 +68,18 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
+#app .sidebar .inputGroup input::-webkit-outer-spin-button,
+#app .sidebar .inputGroup input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#app .sidebar .inputGroup input[type=number] {
+  -moz-appearance: textfield;
+}
+#app .sidebar .inputGroup input:focus,
+#app .sidebar .inputGroup textarea:focus {
+  outline: none;
+}
 #app .sidebar .inputGroup input {
   height: 36px;
 }
@@ -94,6 +106,17 @@
 #app .sidebar .inputGroup .deactiveBtn {
   background: #EEEEEE;
   color: #B4B4B4;
+}
+#app .list-complete-item {
+  transition: all 1s;
+  display: inline-block;
+}
+#app .list-complete-enter, #app .list-complete-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+#app .list-complete-leave-active {
+  position: absolute;
 }
 #app .itemsWrapper {
   width: 100%;
@@ -128,12 +151,19 @@
 }
 #app .itemsWrapper ul {
   list-style: none;
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   padding: 0;
   margin: 0;
-  justify-content: space-between;
+  justify-content: flex-start;
+  /* Firefox < 16 */
+  /* Safari, Chrome and Opera > 12.1 */
+  /* Internet Explorer */
+  /* Opera < 12.1 */
+}
+#app .itemsWrapper ul li {
+  transition: translateY(30px);
 }
 #app .itemsWrapper ul .itemCard {
   width: 332px;
@@ -142,6 +172,7 @@
   border-radius: 4px;
   position: relative;
   margin: 8px;
+  min-height: 423px;
 }
 #app .itemsWrapper ul .itemCard .itemImg {
   height: 200px;
@@ -156,7 +187,8 @@
 #app .itemsWrapper ul .itemCard .itemDetails {
   color: #3F3F3F;
   font-family: "Source Sans Pro";
-  padding: 16px;
+  padding: 0 16px 16px;
+  min-height: 223px;
 }
 #app .itemsWrapper ul .itemCard .itemDetails .itemName {
   font-style: normal;
@@ -164,6 +196,7 @@
   font-size: 20px;
   line-height: 25px;
   margin-bottom: 16px;
+  margin-top: 16px;
 }
 #app .itemsWrapper ul .itemCard .itemDetails .itemDesc {
   font-style: normal;
@@ -188,6 +221,59 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   border: none;
+  opacity: 0;
+}
+#app .itemsWrapper ul .itemCard:hover .itemDeleteBtn {
+  opacity: 1;
+  -webkit-animation: fadein 0.5s;
+  /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 0.5s;
+  /* Firefox < 16 */
+  -ms-animation: fadein 0.5s;
+  /* Internet Explorer */
+  -o-animation: fadein 0.5s;
+  /* Opera < 12.1 */
+  animation: fadein 0.5s;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
