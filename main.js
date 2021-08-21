@@ -53,6 +53,15 @@ new Vue({
 			{ value: 'byName', text: 'По наименованию' } 
 		]
 	},
+	mounted() {
+		if (localStorage.getItem('items')) {
+			try {
+				this.items = JSON.parse(localStorage.getItem('items'));
+			} catch(e) {
+				localStorage.removeItem('items');
+			}
+		}
+	},
 	methods: {
 		addNewItem() {
 			this.items.push({
@@ -64,10 +73,13 @@ new Vue({
 			this.newItemName = '',
 			this.newItemDesc = '',
 			this.newItemImg = '',
-			this.newItemPrice = ''
+			this.newItemPrice = '';
+
+			this.saveItems();
 		},
 		removeItem(index) {
-			this.items.splice(index, 1)
+			this.items.splice(index, 1);
+			this.saveItems();
 		},
 		sortItems() {
 			switch(this.sortBy) {
@@ -85,6 +97,10 @@ new Vue({
 					return this.items;
 
 			}
+		},
+		saveItems() {
+			const parsed = JSON.stringify(this.items);
+			localStorage.setItem('items', parsed);
 		},
 		validateName(e){ 
 			if ( e.target.value.length <= 0) {
