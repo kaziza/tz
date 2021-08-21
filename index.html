@@ -54,10 +54,12 @@
 
 
 		<div class="itemsWrapper">
-			<select name="sort" id="">
-				<option value="">По умолчанию</option>
-				<option value="">По цене</option>
-			</select>
+			<div class="selectWrapper">
+				<select name="sort" id="itemSort" v-model="sortBy" @change="sortItems">
+					<option v-bind:value="option.value" v-for="option in sortOptions">{{ option.text }}</option>
+				</select>
+			</div>
+			
 			<ul>
 				<li v-for="(item, index) in items">
 					<div class="itemCard">

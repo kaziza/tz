@@ -1,6 +1,4 @@
-body {
-	background: antiquewhite;
-}
+
 #app {
 	display: flex;
 	flex-wrap: nowrap;
@@ -12,13 +10,13 @@ body {
 		// new item sidebar
     .sidebar {
         width: 332px;
-				height: 440px;
-        border-radius: 4px;
-        box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
-        background: #FFFEFB;
-        padding: 41px 24px;
-				margin-top: 24px;
-				margin-right: 16px;
+		height: 440px;
+		border-radius: 4px;
+		box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
+		background: #FFFEFB;
+		padding: 41px 24px;
+		margin-top: 24px;
+		margin-right: 16px;
 
 				form {
 					width: 284px;
@@ -30,6 +28,7 @@ body {
 					font-size: 28px;
 					line-height: 35px;
 					color: #3F3F3F;
+					margin-top: 0;
 				}
 
 				.inputGroup {
@@ -112,6 +111,37 @@ body {
 
 		// items list
 		.itemsWrapper {
+			width: 100%;
+			.selectWrapper {
+				display: flex;
+				justify-content: flex-end;
+				margin-bottom: 12px;
+			}
+			select {
+				width: 121.49px;
+				height: 36px;
+				background: #FFFEFB;
+				box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+				border-radius: 4px;
+				margin-top: 31px;
+				border: none;
+				outline: none;
+				appearance: none;
+				cursor: inherit;
+  				line-height: inherit;
+
+				font-family: "Source Sans Pro";
+				font-style: normal;
+				font-weight: normal;
+				font-size: 12px;
+				line-height: 15px;
+				padding: 10px 16px;
+				color: #B4B4B4;
+			}
+			select::-ms-expand {
+				display: none;
+			}
+
 			ul {
 				list-style: none;
 				display: inline-flex;
@@ -123,8 +153,7 @@ body {
 
 				.itemCard {
 					width: 332px;
-					// background: #FFFEFB;
-					background: yellow;
+					background: #FFFEFB;
 					box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
 					border-radius: 4px;
 					position: relative;
@@ -184,6 +213,7 @@ body {
 					}
 				}
 			}
+
 		}
 
 }

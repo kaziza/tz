@@ -1,7 +1,3 @@
-body {
-  background: antiquewhite;
-}
-
 #app {
   display: flex;
   flex-wrap: nowrap;
@@ -29,6 +25,7 @@ body {
   font-size: 28px;
   line-height: 35px;
   color: #3F3F3F;
+  margin-top: 0;
 }
 #app .sidebar .inputGroup {
   display: flex;
@@ -98,6 +95,37 @@ body {
   background: #EEEEEE;
   color: #B4B4B4;
 }
+#app .itemsWrapper {
+  width: 100%;
+}
+#app .itemsWrapper .selectWrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+#app .itemsWrapper select {
+  width: 121.49px;
+  height: 36px;
+  background: #FFFEFB;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-top: 31px;
+  border: none;
+  outline: none;
+  appearance: none;
+  cursor: inherit;
+  line-height: inherit;
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 10px 16px;
+  color: #B4B4B4;
+}
+#app .itemsWrapper select::-ms-expand {
+  display: none;
+}
 #app .itemsWrapper ul {
   list-style: none;
   display: inline-flex;
@@ -109,7 +137,7 @@ body {
 }
 #app .itemsWrapper ul .itemCard {
   width: 332px;
-  background: yellow;
+  background: #FFFEFB;
   box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
   border-radius: 4px;
   position: relative;
