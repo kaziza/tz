@@ -14,7 +14,10 @@
 
 <body>
 	<div id="app">
-
+		<div class="loading" v-if="loading">
+			<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+		</div>
+		<!-- добавление нового товара -->
 		<div class="sidebarWrapper">
 
 			<h1 class="sidebarHeader">Добавление товара</h1>
@@ -59,7 +62,7 @@
 		</div>
 
 
-
+		<!-- товары -->
 		<div class="itemsWrapper">
 			<div class="selectWrapper">
 				<select name="sort" id="itemSort" v-model="sortBy" @change="sortItems">

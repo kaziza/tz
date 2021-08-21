@@ -9,6 +9,7 @@ new Vue({
 		formValid: (this.newItemName && this.newItemImg),
 		sortBy: 'default',
 		errors: [],
+		loading: true,
 		items: [
 		{
 			name: 'ccccccc',
@@ -60,6 +61,7 @@ new Vue({
 			} catch(e) {
 				localStorage.removeItem('items');
 			}
+			this.loading = false;
 		}
 	},
 	methods: {
