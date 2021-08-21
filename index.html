@@ -14,52 +14,65 @@
 
 <body>
 	<div id="app">
+		<div class="loading" v-if="loading">
+			<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+		</div>
+		<!-- добавление нового товара -->
+		<div class="sidebarWrapper">
 
-		<div class="sidebar">
 			<h1 class="sidebarHeader">Добавление товара</h1>
-			<form>
-				<div class="inputGroup">
-					<label for="newItemName">Наименование товара</label>
-					<input type="text" v-model="newItemName" name="newItemName" placeholder="Введите наименование товара">
 
-				</div>
-				<div class="inputGroup">
-					<label for="newItemDesc">Описание товара</label>
-					<textarea v-model="newItemDesc" name="newItemDesc" placeholder="Введите описание товара"
+			<div class="sidebar">
+				<form>
+					<div class="inputGroup">
+						<label for="newItemName" class="requiredField">Наименование товара</label>
+						<input type="text" v-model="newItemName" name="newItemName" placeholder="Введите наименование товара" 
+						@input="validateName">
+						<span class="warningMsg" v-if="errors.name">{{ errors.name }}</span>
+					</div>
+					<div class="inputGroup">
+						<label for="newItemDesc">Описание товара</label>
+						<textarea v-model="newItemDesc" name="newItemDesc" placeholder="Введите описание товара"
 							rows="5" cols="20"></textarea>
 
-				</div>
-				<div class="inputGroup">
-					<label for="newItemImg">Ссылка на изображение товара</label>
-					<input type="text" v-model="newItemImg" name="newItemImg" placeholder="Введите ссылку">
-
-				</div>
-				<div class="inputGroup">
-					<label for="newItemPrice">Цена товара</label>
-					<input type="number" v-model="newItemPrice" min=0 name="newItemPrice" placeholder="Введите цену">
-
-				</div>
-
-
-				<div class="inputGroup">
-					<input type="submit" value="Добавить товар" @click="addNewItem" class="activeBtn"
-						v-if="(newItemName !== '' && newItemImg !== '' && newItemPrice > 0)">
-					<button class="deactiveBtn" v-else>Добавить товар</button>
-
-				</div>
+					</div>
+					<div class="inputGroup">
+						<label for="newItemImg" class="requiredField">Ссылка на изображение товара</label>
+						<input type="text" v-model="newItemImg" name="newItemImg" placeholder="Введите ссылку" @input="validateImg">
+						<span class="warningMsg" v-if="errors.img">{{ errors.img }}</span>
+					</div>
+					<div class="inputGroup">
+						<label for="newItemPrice" class="requiredField">Цена товара</label>
+						<input type="number" v-model="newItemPrice" min='0' name="newItemPrice" placeholder="Введите цену"
+						@input="validatePrice">
+						<span class="warningMsg" v-if="errors.price">{{ errors.price }}</span>
+					</div>
 
 
-			</form>
+					<div class="inputGroup">
+						<input type="submit" value="Добавить товар" @click="addNewItem" class="activeBtn"
+							v-if="(newItemName !== '' && newItemImg !== '' && newItemPrice > 0)">
+						<button class="deactiveBtn" disabled v-else>Добавить товар</button>
+
+					</div>
+
+
+				</form>
+			</div>
 		</div>
 
 
+		<!-- товары -->
 		<div class="itemsWrapper">
-			<select name="sort" id="">
-				<option value="">По умолчанию</option>
-				<option value="">По цене</option>
-			</select>
-			<ul>
-				<li v-for="(item, index) in items">
+			<div class="selectWrapper">
+				<select name="sort" id="itemSort" v-model="sortBy" @change="sortItems">
+					<option v-bind:value="option.value" v-for="option in sortOptions">{{ option.text }}</option>
+				</select>
+			</div>
+
+
+			<transition-group tag='ul' name="list-complete">
+				<li v-for="(item, index) in items" class="list-complete-item" v-bind:key="item">
 					<div class="itemCard">
 						<div class="itemImg">
 							<img v-bind:src="item.img" alt="">
@@ -69,12 +82,12 @@
 							<p class="itemDesc">{{ item.desc }}</p>
 							<p class="itemPrice">{{ item.price }} руб.</p>
 						</div>
-					
-						
+
+
 						<input type="button" value="" @click="removeItem(index)" class="itemDeleteBtn">
 					</div>
 				</li>
-			</ul>
+			</transition-group>
 		</div>
 
 	</div>
